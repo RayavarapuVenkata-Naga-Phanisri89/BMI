@@ -1,0 +1,234 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    margin:0;
+    padding:20px;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#4facfe,#00f2fe);
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+}
+
+.container{
+    width:380px;
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    text-align:center;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+h1{
+    color:#333;
+    margin-bottom:20px;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:16px;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#007bff;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0056b3;
+}
+
+.result{
+    margin-top:20px;
+}
+
+#bmi{
+    color:#28a745;
+    font-size:30px;
+    margin:10px 0;
+}
+
+#status{
+    font-size:20px;
+    font-weight:bold;
+}
+
+#recommendation{
+    margin-top:10px;
+    color:#555;
+}
+.bmi-meter{
+    margin-top:25px;
+}
+
+.meter{
+    width:100%;
+    height:20px;
+    background:linear-gradient(to right,
+    #3498db 0%,
+    #3498db 25%,
+    #2ecc71 25%,
+    #2ecc71 50%,
+    #f39c12 50%,
+    #f39c12 75%,
+    #e74c3c 75%,
+    #e74c3c 100%);
+    border-radius:10px;
+    position:relative;
+}
+
+#indicator{
+    width:18px;
+    height:18px;
+    background:white;
+    border:3px solid black;
+    border-radius:50%;
+    position:absolute;
+    top:-2px;
+    left:0%;
+    transition:0.5s;
+}
+
+.labels{
+    display:flex;
+    justify-content:space-between;
+    margin-top:8px;
+    font-size:12px;
+    font-weight:bold;
+}
+.logo-container{
+    text-align:center;
+    margin-bottom:20px;
+}
+.bmi-logo{
+    width:120px;
+    height:120px;
+}
+
+.logo-container h2{
+    margin-top:25px;   /* Increase this value */
+    color:#0d47a1;
+    font-size:30px;
+    font-weight:700;
+}
+
+
+@keyframes float{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+.health-image{
+    margin-top:20px;
+    text-align:center;
+}
+
+.health-image img{
+    width:180px;
+    height:180px;
+    object-fit:contain;
+    border-radius:15px;
+    transition:0.5s;
+    animation:zoom 1s ease;
+}
+
+@keyframes zoom{
+
+    from{
+        transform:scale(0.7);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+.result-box{
+    margin-top:20px;
+    padding:20px;
+    background:#f5f5f5;
+    border-radius:12px;
+    text-align:center;
+}
+
+#healthScore{
+    font-size:40px;
+    color:#28a745;
+    margin:10px 0;
+}
+
+#scoreMessage{
+    font-size:18px;
+    color:#444;
+}
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+}
+/* Food Recommendation */
+#foods {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff3e0;
+    color: #e65100;
+    border-radius: 12px;
+    border-left: 6px solid #ff9800;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+/* Food heading */
+#foods h3 {
+    color: #d84315;
+    margin-bottom: 10px;
+}
+
+/* Food list */
+#foods ul {
+    padding-left: 20px;
+}
+
+#foods li {
+    color: #333;
+    margin: 8px 0;
+}
+#indicator{
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 50%;
+    top: -5px;
+    left: 0;
+    transition: left 0.5s ease;
+}

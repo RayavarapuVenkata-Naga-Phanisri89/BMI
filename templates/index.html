@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>BMI Calculator</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Logo -->
+    <div class="logo-container">
+
+        <svg class="bmi-logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+
+            <!-- Gradient -->
+            <defs>
+                <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00c6ff"/>
+                    <stop offset="100%" stop-color="#0072ff"/>
+                </linearGradient>
+            </defs>
+
+            <!-- Circle -->
+            <circle cx="100" cy="100" r="90" fill="url(#bg)"/>
+
+            <!-- Scale -->
+            <line x1="100" y1="55" x2="100" y2="125"
+                  stroke="white" stroke-width="7"/>
+
+            <line x1="55" y1="70" x2="145" y2="70"
+                  stroke="white" stroke-width="6"/>
+
+            <line x1="70" y1="70" x2="60" y2="100"
+                  stroke="white" stroke-width="3"/>
+
+            <line x1="130" y1="70" x2="140" y2="100"
+                  stroke="white" stroke-width="3"/>
+
+            <!-- Left Bowl -->
+            <path d="M45 100 Q60 120 75 100 Z"
+                  fill="#ff4d6d"/>
+
+            <!-- Right Bowl -->
+            <path d="M125 100 Q140 120 155 100 Z"
+                  fill="#4CAF50"/>
+
+            <!-- Heart -->
+            <path d="M100 35
+                     C95 20 75 20 75 40
+                     C75 55 100 70 100 70
+                     C100 70 125 55 125 40
+                     C125 20 105 20 100 35"
+                  fill="#ff3b5c"/>
+
+            <!-- Heartbeat -->
+            <polyline
+                points="82,145 92,145 98,135 105,155 113,140 120,145"
+                fill="none"
+                stroke="white"
+                stroke-width="3"/>
+
+            <!-- Tape -->
+            <path d="M60 150 Q100 165 140 150"
+                  stroke="#FFD54F"
+                  stroke-width="8"
+                  fill="none"
+                  stroke-linecap="round"/>
+
+        </svg>
+
+        <h2>BMI Calculator</h2>
+
+    </div>
+
+    <!-- Input -->
+
+<input type="number" id="height" placeholder="Height (cm)">
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+ <input type="text" id="name" placeholder="Enter your name">
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+    <button onclick="downloadReport()">Download Report</button>
+
+    <!-- Result -->
+    <div class="result">
+
+        <h2>Your BMI</h2>
+
+        <div class="result-box">
+            <h3>Health Score</h3>
+            <h2 id="healthScore">0/100</h2>
+            <p id="scoreMessage"></p>
+        </div>
+
+        <div class="health-image">
+            <img
+                id="healthImage"
+                src="{{ url_for('static', filename='images/normal.jpg') }}"
+                alt="Health Image"
+                width="180">
+        </div>
+
+        <h3 id="bmi">0</h3>
+
+        <div class="bmi-meter">
+
+            <div class="meter">
+                <div id="indicator"></div>
+            </div>
+
+            <div class="labels">
+                <span>Underweight</span>
+                <span>Normal</span>
+                <span>Overweight</span>
+                <span>Obese</span>
+            </div>
+
+        </div>
+
+        <p id="status"></p>
+        <p id="recommendation"></p>
+        <div id="foods"></div>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
