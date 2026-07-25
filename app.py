@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, jsonify, send_file
 from reportlab.pdfgen import canvas
+from io import BytesIO
+from flask import send_file
 
 app = Flask(__name__)
 
@@ -146,9 +148,9 @@ def download_report():
 
     status, recommendation, foods, total_calories = get_bmi_details(bmi)
 
-    filename = "BMI_Report.pdf"
-
-    pdf = canvas.Canvas(filename)
+    buffer = BytesIO()
+ 
+    pdf = canvas.Canvas(buffer)
 
     # Title
     pdf.setTitle("BMI Health Report")
@@ -197,8 +199,14 @@ def download_report():
 
     pdf.save()
 
-    return send_file(filename, as_attachment=True)
+    buffer.seek(0)
 
+    return send_file(
+    buffer,
+    as_attachment=True,
+    download_name="BMI_Report.pdf",
+    mimetype="application/pdf"
+)
 
 # -------------------------------
 # Run Application
